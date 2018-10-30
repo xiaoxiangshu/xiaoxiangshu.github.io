@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>学习笔记-vue - kora blog</title>
+<title>标签 - android - kora blog</title>
 
 <meta name="keywords" content="">
 
@@ -67,21 +67,21 @@
 </div>
             <div class="page-title">
     <ul>
-        <li><a href="/">最新</a></li>
+        <li class="">
+            <a href="/" data-name="最近文章">最近</a>
+        </li>
         
-            
-                <li class="">
-                    <a href="/categories/the-front-end" data-name="前端">前端</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/server-side" data-name="后台">后台</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/life" data-name="生活">生活</a>
-                </li>
-            
+        <li class="">
+            <a href="/categories/the-front-end" data-name="前端">前端</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/server-side" data-name="后台">后台</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/life" data-name="生活">生活</a>
+        </li>
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -122,53 +122,39 @@
     </ul>
 </div>
 <div class="main-inner">
-    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <div class="post-author clearfix">
-                <a class="avatar fleft" href="" target="_blank">
-                    <img width="48" src="/images/v2.jpg" alt="avatar">
-                </a>
-                <p><span class="label">作者</span>
-                    <a href="" target="_blank"></a>
-                    <span title="最后编辑于2018-10-28">2018-10-28</span>
-                </p>
-                <p></p>
-            </div>
-            <h2 class="post-title">学习笔记-vue</h2>
-            <div class="post-meta">
-                本文总共548个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
-            </div>
-        </div>
-        <div class="post-content markdown-body">
-            <h2 id="1、vue的响应式系统中：Object-freeze-会阻止修改现有的属性。"><a href="#1、vue的响应式系统中：Object-freeze-会阻止修改现有的属性。" class="headerlink" title="1、vue的响应式系统中：Object.freeze() 会阻止修改现有的属性。"></a>1、vue的响应式系统中：Object.freeze() 会阻止修改现有的属性。</h2><pre><code>意味着响应系统无法再追踪变化。
-</code></pre><p>Object.freeze():该方法可以冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。该方法返回被冻结的对象。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">js：</span><br><span class="line">var obj = &#123;</span><br><span class="line">  foo: <span class="string">'bar'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.freeze(obj)</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: obj</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; foo &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;!-- 这里的 `foo` 不会更新！ --&gt;</span><br><span class="line">  &lt;button v-on:click=<span class="string">"foo = 'baz'"</span>&gt;Change it&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="2、指令"><a href="#2、指令" class="headerlink" title="2、指令"></a>2、指令</h2><p>v-bind: 可以用于响应式的更新HTML特性<br>（src,<br>class<br>style,<br>绑定一个有属性的对象,<br>通过prop 修饰符绑定 DOM 属性,</p>
-<p>）</p>
-
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+    
+    
+    
+<article class="post">
+    
+    <div class="post-header">
+        <div class="post-meta">
+            <a href="" target="_blank">
+                <strong></strong>
             </a>
+            <em>·</em>2018-10-30
         </div>
-        
-        <div class="post-tags">Tags：
+        <a class="post-title" href="/2018/10/30/android生成apk出错/" target="_blank" title="android生成apk出错">android生成apk出错</a>
+        <div class="post-meta">
+            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
             
-            <a href="/tags/js/">js</a>
-            
-            <a href="/tags/vue/">vue</a>
+                <em>·</em>
+                <a href="https://xxxxcute.github.io/tags/android/" target="_blank">android</a>
             
         </div>
-        
-    </article>
-    
-    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
-    
+    </div>
+    <div class="post-desc">
+        android生成apk出错
+    </div>
+</article>
+
+
+
     
 </div>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- 分页开始 -->
+
+
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
