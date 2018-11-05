@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://xxxxcute.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://xxxxcute.github.io">
+<meta name="author" content="kora">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/SimpleStyle.min.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>学习总结-你不知道的javascript(作用域和闭包) - kora blog</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="你来人间一趟，你要看看太阳，带着你新new的对象，一起走在编译的路上。">
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="赵">赵</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/v2.jpg" alt="Xinyi">
+        
+        <h1 class="cover-siteName">以梦为马</h1>
+        <h3 class="cover-siteTitle">记录学习的点滴</h3>
+        <p class="cover-siteDesc">物昭晰而互进，情曈昽而弥鲜。</p>
+        <div class="cover-sns">
+            
+            <div class="btn btn-github">
+                <a href="https://github.com/xxxxcute" target="_blank" title="github" ref="friend">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/the-front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server-side" data-name="后台">后台</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/life" data-name="生活">生活</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/v2.jpg" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-11-04">2018-11-04</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">学习总结-你不知道的JavaScript(作用域和闭包)</h2>
+            <div class="post-meta">
+                本文总共4036个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h3 id="1、作用域"><a href="#1、作用域" class="headerlink" title="1、作用域"></a>1、作用域</h3><p>LHS 查询 和 RHS 查询<br>‘L’ 和’R’ 代表在一个复制操作的左侧和右侧<br>即：<strong>当变量出现在赋值操作的左侧时进行LHS查询，出现在右侧时进行RHS查询。</strong></p>
+<p><strong>LHS</strong>:目的是对变量进行赋值<br><strong>RHS</strong>:目的是获取变量的值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a=2;</span><br></pre></td></tr></table></figure></p>
+<p>在对其进行编译的过程中，编译器会将他分成两个步骤：<br>1、var a 在其作用域声明新变量<br>2、a=2 会进行LHS查询,查询变量a 并对其进行赋值。</p>
+<p><strong>ReferenceErro</strong><br>    RHS 查询失败：表示找不到相关变量，此时会抛出ReferenceError异常。<br>    ReferenceError同作用域判别失败相关<br>    在非严格模式下,不成功的LHS引用 (未找到变量声明)会导致编译器自动隐式的创建一个全局变量。<br>    严格模式下：会抛出ReferenceError错误。</p>
+<p><strong>TypeError</strong><br>    如果RHS查询找到了一个变量，但是我们尝试对这个变量的值进行不合理的操作，比如试图对一个非函数类型的值进行函数调用，或者引用null或undefined类型的值中的属性，那么引擎便会抛出TypeError。<br>    TypeError表示作用域判别成功，但是对结果的操作是非法的或者是不合理的。</p>
+<h3 id="2、词法作用域"><a href="#2、词法作用域" class="headerlink" title="2、词法作用域"></a>2、词法作用域</h3><p>词法作用域就是定义在词法阶段的作用域，换句话说，就是我们在写代码时将<font color="#ff014b">变量和块作用域</font>写在哪里决定的(<font color="#ff014b">声明的位置</font>)</p>
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><p>作用域查找会在找到第一个匹配的标识符的时候停止。<br><strong>遮蔽效应</strong>：在多层嵌套的作用域中可以定义多个同名的标识符，抛开遮蔽效应，作用域在查找始终在运行时所处的最内部的作用域开始，逐级向外，或者向上进行，直到遇见第一个匹配的标识符为止。</p>
+<h4 id="欺骗词法"><a href="#欺骗词法" class="headerlink" title="欺骗词法"></a>欺骗词法</h4><h5 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h5><p>eval(…): eval接受一个字符串为参数，并将其内容视为好像在书写时就存在于程序中这个位置的代码。<br>它是通过 <em>代码欺骗</em> 和假装成 <em>书写时（也就是词法期）</em> 代码就在那里，来实现修改词法作用域的坏境的。</p>
+<p>eval 欺骗示例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> foo(str,a)&#123;</span><br><span class="line">	<span class="built_in">eval</span>(str);//欺骗</span><br><span class="line">	console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b=2;</span><br><span class="line">foo(<span class="string">"var b=3;"</span>,1)	//1,3</span><br></pre></td></tr></table></figure></p>
+<p>根据上例，在实际情况中，我们可以非常容易的根据<font color="#ff014b">程序逻辑动态</font>将字符拼接在一起之后再传递进去。<br>所以，eval(..)通常被用来执行<font color="#ff014b"><strong>动态创建的代码</strong></font>，他可以在运行期间修改书写期的词法作用域。</p>
+<p><strong>在严格模式中：</strong>eval有自己的作用域，故其中的声明无法修改自己所在的作用域。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> foo(str)&#123;</span><br><span class="line">	<span class="string">"use strict"</span>;</span><br><span class="line">	<span class="built_in">eval</span>(str);</span><br><span class="line">	console.log(a);	//ReferenceError:a is not defined</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="string">"var a = 2"</span>);</span><br></pre></td></tr></table></figure></p>
+<h5 id="with"><a href="#with" class="headerlink" title="with"></a>with</h5><p>with(obj):通过将一个对象的引用当作作用域处理，将对象的 <em>属性</em> 当作 <em>作用域中的标识符</em> 来处理，从而创建一个新的词法作用域。<br>    with通常被当作 <em>重复引用</em> 同一个对象的多个属性的<font color="#ff014b">快捷方式</font>,</p>
+<p>with可以不需要重复的引用对象本身<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;</span><br><span class="line">	a:1,</span><br><span class="line">	b:2,</span><br><span class="line">	c:3</span><br><span class="line">&#125;;</span><br><span class="line">//单调乏味的重复的<span class="string">"obj"</span></span><br><span class="line">obj.a = 2;</span><br><span class="line">obj.b = 3;</span><br><span class="line">obj.c = 4;</span><br><span class="line"></span><br><span class="line">//简单的快捷方式</span><br><span class="line">with(obj)&#123;</span><br><span class="line">	a=3;</span><br><span class="line">	b=4;</span><br><span class="line">	c=5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>带来的问题：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> foo(obj)&#123;</span><br><span class="line">	with(obj)&#123;</span><br><span class="line">		a = 2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var o1=&#123;</span><br><span class="line">	a:3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var o2=&#123;</span><br><span class="line">	b:3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo(o1);</span><br><span class="line">console.log(o1.a); //2</span><br><span class="line"></span><br><span class="line">foo(o2);</span><br><span class="line">console.log(o2.a);  //undefined</span><br><span class="line">console.log(a);		//2 ---此时,a被泄露到全局作用域上了</span><br></pre></td></tr></table></figure></p>
+<p>在上例中，将o1传递给with时，with所声明的作用域是o1,而这个作用域中含有一个同o1.a属性相符的标识符。<br>将o2作为作用域时，其中并没有a 标识符，因此进行了正常的LHS标识符查找，</p>
+<p><strong>数据泄露的原因</strong>：因为o2的作用域，foo(…)的作用域和全局作用域中都没有找到标识符a,因此，当a=2执行时，自动创建了一个全局变量(非严格模式)</p>
+<p>eval和with两种方式在严格模式下均不能使用，此外javascript引擎无法遇到eval和with时，<strong>不能在编译阶段进行数项的性能优化</strong></p>
+<p>(有些优化依赖于能够根据代码的词法进行静态分析，预先确定所有变量和函数的定义位置,才能在执行过程中快速找到标识符，当发现eval和with ，引擎只能简单的假设关于标识符的位置判断都是无效的，因为无法在词法分析阶段明确知道eval(..)会接收到什么代码，这些代码会如何对作用域进行修改，也无法知道传递给with用来创建词法作用域的对象的内容到底是什么。使用这两种其中任何一个机制都将导致代码运行很慢)</p>
+<font color="#ff014b">故不要使用eval 和 with </font>
+
+
+<h3 id="3、函数作用域和块作用域"><a href="#3、函数作用域和块作用域" class="headerlink" title="3、函数作用域和块作用域"></a>3、函数作用域和块作用域</h3><p>在任意代码片段外部添加包装函数，可以将内部的变量和函数定义”隐藏”起来，外部作用域无法访问包装函数内部的任何内容：</p>
+<h4 id="函数声明："><a href="#函数声明：" class="headerlink" title="函数声明："></a>函数声明：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var a=2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	var a=3;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure>
+<p>上述导致的额外的问题 ：<br>    1、必须声明一个具名函数foo,意味着函数这个名称本身”污染”了所在的作用域<br>    2、必须显式的通过函数名(foo())调用这个函数才能运行其中的代码。</p>
+<h4 id="函数表达式："><a href="#函数表达式：" class="headerlink" title="函数表达式："></a>函数表达式：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 2;</span><br><span class="line">(<span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	var a = 3;</span><br><span class="line">	console.log(a); //3</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure>
+<p>包装函数的声明以<font color="#ff014b"> (function </font> 开始,函数会被当作<font color="#ff014b">函数表达式</font>而不是一个标准的函数声明来处理。<br>其中foo 被绑定在函数表达式的自身的函数种而不是所在的作用域中。（不会污染外部作用域）</p>
+<h4 id="匿名和具名"><a href="#匿名和具名" class="headerlink" title="匿名和具名"></a>匿名和具名</h4><p>匿名函数表达式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">"I waited 1 second"</span>);</span><br><span class="line">&#125;,1000);</span><br></pre></td></tr></table></figure>
+<p><strong>函数表达式可以是匿名的，而函数声明则不可以省略函数名</strong></p>
+<p>匿名的缺点：<br>    1、在栈追踪中不会显示出有意义的函数名，使得调试很困难<br>    2、函数引用自身只能使用已经过期的arguments.callee 引用<br>    3、省略了对于代码可读性/可理解性很重要的函数名，一个描述性的名称可以让代码不言自明。</p>
+<h4 id="立即执行函数表达式"><a href="#立即执行函数表达式" class="headerlink" title="立即执行函数表达式"></a>立即执行函数表达式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a=2;</span><br><span class="line">(<span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	var a=3;</span><br><span class="line">	console.log(a); //3</span><br><span class="line">&#125;)();  //----------------------&gt;这个括号立即执行了前面按个括号里面的函数表达式foo，这种方式称为IIFE.</span><br><span class="line"></span><br><span class="line">console.log(a); //2</span><br></pre></td></tr></table></figure>
+<p><strong>IIFE</strong>代表立即执行函数表达式,常用于匿名函数表达式。<br>虽然用于具名的不太常见，但是其用于具名时也拥有匿名表达式的所有优势。</p>
+<p>两种形式(功能上是一致的)：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span> ()&#123;...&#125;)();</span><br><span class="line">(<span class="function"><span class="title">function</span></span> ()&#123;...&#125;());</span><br></pre></td></tr></table></figure></p>
+<p>IIFE—普遍的进阶用法(把他们当作函数调用并传递参数进去)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a=2;</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span> IIFE(global)&#123;</span><br><span class="line">	var a=3;</span><br><span class="line">	console.log(a);  //3</span><br><span class="line">	console.log(global.a);  //2</span><br><span class="line">&#125;)(window);</span><br><span class="line"></span><br><span class="line">console.log(a);  //2</span><br></pre></td></tr></table></figure>
+<p>IIFE—-倒置代码的运行顺序，将需要运行的函数放在第二位，在IIFE执行之后，当作参数传递进去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a=2;</span><br><span class="line">(<span class="keyword">function</span> IIFE(def)&#123;</span><br><span class="line">	def(window)</span><br><span class="line">&#125;)(<span class="keyword">function</span> def(global)&#123;</span><br><span class="line">	var a=3;</span><br><span class="line">	console.log(a); //3</span><br><span class="line">	console.log(global.a); //2</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="块作用域"><a href="#块作用域" class="headerlink" title="块作用域"></a>块作用域</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(var i=0;i&lt;10;i++)&#123;</span><br><span class="line">	console.log(i);		</span><br><span class="line">&#125;</span><br><span class="line">console.log(i);	//10--------&gt;i被绑定到了全局作用域</span><br></pre></td></tr></table></figure>
+<p><font color="#ff014b">当使用var声明声明变量时,无论写在哪里，最终都会属于外部作用域</font><br>let关键字可以将变量绑定到所在的任意作用域中(通常是{…}内部)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var foo=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span>(foo)&#123;</span><br><span class="line">	<span class="built_in">let</span> bar=2;</span><br><span class="line">&#125;</span><br><span class="line">console.log(bar); //RefferenceError</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、提升"><a href="#4、提升" class="headerlink" title="4、提升"></a>4、提升</h3><p>两个例子<br>1、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=2;</span><br><span class="line">var a;</span><br><span class="line">console.log(a);		//2</span><br></pre></td></tr></table></figure></p>
+<p>2、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);	//undefined</span><br><span class="line">var a=2;</span><br></pre></td></tr></table></figure></p>
+<p>在编译阶段，javascript引擎会找到所有的声明，并用合适的作用域将它们关联起来<br>其中，<strong>变量</strong>以及<strong>函数</strong>在内的所有的声明，会在任何代码被执行之前首先被处理。</p>
+<p>第一个例子:会以如下形式进行处理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var 2;</span><br><span class="line">a = 2;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure></p>
+<p>第一部分编译，第二部分执行。</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/js/">js</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!--<a href="/app" title="App下载">App下载</a>-->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2017 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://www.tangkunyin.com" target="_blank">唐先森</a>
+            ，Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+        </p>
+        
+
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/InsightSearch.js"></script>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        SimpleCore.init({
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+        });
+    });
+</script>
+</body>
+</html>
