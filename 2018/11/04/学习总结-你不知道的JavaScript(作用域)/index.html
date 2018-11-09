@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>学习总结-你不知道的javascript(作用域和闭包) - kora blog</title>
+<title>学习总结-你不知道的javascript(作用域) - kora blog</title>
 
 <meta name="keywords" content="">
 
@@ -28,9 +28,9 @@
 <div id="nav">
     <nav class="nav-menu">
         <a class="site-name current" href="/" title="赵">赵</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
-        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
-        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
         <!-- custom single page of menus -->
         
     </nav>
@@ -85,15 +85,15 @@
         
         <li class="page-search">
     <form id="search" class="search-form">
-        <label for="s" class="sr-only">请输入关键字</label>
-        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
-        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+        <label for="s" class="sr-only">Input Search key Words Here</label>
+        <input class="search-field" type="text" name="s" placeholder="Input Search key Words Here">
+        <button type="submit" class="search-form-submit" title="Search"><i class="fa fa-search"></i></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -105,11 +105,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(无标题)',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -134,9 +134,9 @@
                 </p>
                 <p></p>
             </div>
-            <h2 class="post-title">学习总结-你不知道的JavaScript(作用域和闭包)</h2>
+            <h2 class="post-title">学习总结-你不知道的JavaScript(作用域)</h2>
             <div class="post-meta">
-                本文总共4036个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共5336个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -178,12 +178,15 @@
 <p>IIFE—-倒置代码的运行顺序，将需要运行的函数放在第二位，在IIFE执行之后，当作参数传递进去</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a=2;</span><br><span class="line">(<span class="keyword">function</span> IIFE(def)&#123;</span><br><span class="line">	def(window)</span><br><span class="line">&#125;)(<span class="keyword">function</span> def(global)&#123;</span><br><span class="line">	var a=3;</span><br><span class="line">	console.log(a); //3</span><br><span class="line">	console.log(global.a); //2</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h4 id="块作用域"><a href="#块作用域" class="headerlink" title="块作用域"></a>块作用域</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(var i=0;i&lt;10;i++)&#123;</span><br><span class="line">	console.log(i);		</span><br><span class="line">&#125;</span><br><span class="line">console.log(i);	//10--------&gt;i被绑定到了全局作用域</span><br></pre></td></tr></table></figure>
-<p><font color="#ff014b">当使用var声明声明变量时,无论写在哪里，最终都会属于外部作用域</font><br>let关键字可以将变量绑定到所在的任意作用域中(通常是{…}内部)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var foo=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span>(foo)&#123;</span><br><span class="line">	<span class="built_in">let</span> bar=2;</span><br><span class="line">&#125;</span><br><span class="line">console.log(bar); //RefferenceError</span><br></pre></td></tr></table></figure></p>
-<h3 id="4、提升"><a href="#4、提升" class="headerlink" title="4、提升"></a>4、提升</h3><p>两个例子<br>1、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=2;</span><br><span class="line">var a;</span><br><span class="line">console.log(a);		//2</span><br></pre></td></tr></table></figure></p>
-<p>2、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);	//undefined</span><br><span class="line">var a=2;</span><br></pre></td></tr></table></figure></p>
-<p>在编译阶段，javascript引擎会找到所有的声明，并用合适的作用域将它们关联起来<br>其中，<strong>变量</strong>以及<strong>函数</strong>在内的所有的声明，会在任何代码被执行之前首先被处理。</p>
-<p>第一个例子:会以如下形式进行处理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var 2;</span><br><span class="line">a = 2;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure></p>
-<p>第一部分编译，第二部分执行。</p>
+<font color="#ff014b">当使用var声明声明变量时,无论写在哪里，最终都会属于外部作用域</font><br>let关键字可以将变量绑定到所在的任意作用域中(通常是{…}内部)<br><br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var foo=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span>(foo)&#123;</span><br><span class="line">	<span class="built_in">let</span> bar=2;</span><br><span class="line">&#125;</span><br><span class="line">console.log(bar); //RefferenceError</span><br></pre></td></tr></table></figure><br><br><strong>4、提升</strong><br><br><br><br>两个例子<br>1、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=2;</span><br><span class="line">var a;</span><br><span class="line">console.log(a);		//2</span><br></pre></td></tr></table></figure><br><br>2、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);	//undefined</span><br><span class="line">var a=2;</span><br></pre></td></tr></table></figure><br><br>在编译阶段，javascript引擎会找到所有的声明，并用合适的作用域将它们关联起来<br>其中，<strong>变量</strong>以及<strong>函数</strong>在内的所有的声明，会在任何代码被执行之前首先被处理。<br>ss<br>第一个例子:会以如下形式进行处理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var 2;</span><br><span class="line">a = 2;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure><br><br>第一部分<font color="#ff014b">定义声明</font>(var a;)编译，第二部分<font color="#ff014b">赋值声明</font>(a=2;)会被留在原地等待执行阶段。<br><br>第二个例子：会以如下形式进行处理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line">console.log(a);</span><br><span class="line">a=2;</span><br></pre></td></tr></table></figure><br><br><font color="#ff014b">在编译的过程中，变量和函数的声明会从它们在代码中出现的位置被移动到最上面，这就是提升</font><br><font color="#ff014b">先有声明，后赋值</font>
+
+<p><strong>函数和函数表达式</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">foo();</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	</span><br><span class="line">	console.log(a); //undefined</span><br><span class="line">	var a=2;</span><br><span class="line">&#125;</span><br><span class="line">//函数的声明会被提升,如下:(其中函数作用域内部也会对var进行提升)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	var a;</span><br><span class="line">	console.log(a); //undefined</span><br><span class="line">	a=2;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure></p>
+<p><strong>函数声明会被提升，但是函数表达数却不会被提升</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo(); 	//ReferenceError 而是TypeError;表示找到了相关变量(RHS查询)，对变量进行不合理赋值操作(LHS查询出错)</span><br><span class="line"></span><br><span class="line">var foo=<span class="keyword">function</span> <span class="function"><span class="title">bar</span></span>()&#123;</span><br><span class="line">	//....</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>即使是具名的函数表达式，名称标识符在赋值之前也无法在所在的作用域中使用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo();	//TypeError</span><br><span class="line">bar();	//ReferenceError</span><br><span class="line">var foo=<span class="keyword">function</span> <span class="function"><span class="title">bar</span></span>()&#123;</span><br><span class="line">	//...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>以上代码片段在提升之后，会被理解成以下形式:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var foo;</span><br><span class="line">foo(); //TypeError</span><br><span class="line">bar();//ReferenceError</span><br><span class="line">foo=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	var bar = ....</span><br><span class="line">	//...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>函数优先</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">foo();	//1</span><br><span class="line">var foo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;			//函数声明</span><br><span class="line">	console.log(1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo = <span class="function"><span class="title">function</span></span>()&#123; 		//函数表达式</span><br><span class="line">	console.log(2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上例中。函数声明和变量声明都会被提升，但是，输出的是函数声明里面的值。<font color="#ff014b">说明函数声明优于变量声明被提升</font><br>这段片段会被引擎理解为如下形式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	console.log(1);</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line">foo=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(2);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">注：var foo尽管出现在<span class="keyword">function</span> foo()...的声明之前，但是他是重复的声明(因此被忽略了，因此函数声明会被提升到普通变量之前)</span><br></pre></td></tr></table></figure></p>
+<p><font color="#ff014b">重复的var声明会被忽略掉，但是重复的函数声明还是会覆盖前面的,例:</font><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">foo(); 			//3</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	console.log(1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var foo = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(2);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	console.log(3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         </div>
         <div class="post-tool">
@@ -192,7 +195,7 @@
             </a>
         </div>
         
-        <div class="post-tags">标签：
+        <div class="post-tags">Tags：
             
             <a href="/tags/js/">js</a>
             
@@ -210,7 +213,7 @@
     <footer class="footer">
     <div class="footer-inner">
         <p>
-            <a href="/about" title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/about" title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
             <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp

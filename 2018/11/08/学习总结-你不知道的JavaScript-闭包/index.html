@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>学习笔记-vue - kora blog</title>
+<title>学习总结-你不知道的javascript(闭包) - kora blog</title>
 
 <meta name="keywords" content="">
 
@@ -130,22 +130,21 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="" target="_blank"></a>
-                    <span title="最后编辑于2018-10-28">2018-10-28</span>
+                    <span title="最后编辑于2018-11-08">2018-11-08</span>
                 </p>
                 <p></p>
             </div>
-            <h2 class="post-title">学习笔记-vue</h2>
+            <h2 class="post-title">学习总结-你不知道的JavaScript(闭包)</h2>
             <div class="post-meta">
-                本文总共548个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共994个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h2 id="1、vue的响应式系统中：Object-freeze-会阻止修改现有的属性。"><a href="#1、vue的响应式系统中：Object-freeze-会阻止修改现有的属性。" class="headerlink" title="1、vue的响应式系统中：Object.freeze() 会阻止修改现有的属性。"></a>1、vue的响应式系统中：Object.freeze() 会阻止修改现有的属性。</h2><pre><code>意味着响应系统无法再追踪变化。
-</code></pre><p>Object.freeze():该方法可以冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。该方法返回被冻结的对象。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">js：</span><br><span class="line">var obj = &#123;</span><br><span class="line">  foo: <span class="string">'bar'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.freeze(obj)</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: obj</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; foo &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;!-- 这里的 `foo` 不会更新！ --&gt;</span><br><span class="line">  &lt;button v-on:click=<span class="string">"foo = 'baz'"</span>&gt;Change it&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="2、指令"><a href="#2、指令" class="headerlink" title="2、指令"></a>2、指令</h2><p>v-bind: 可以用于响应式的更新HTML特性<br>（src,<br>class<br>style,<br>绑定一个有属性的对象,<br>通过prop 修饰符绑定 DOM 属性,</p>
-<p>）</p>
+            <h4 id="作用域闭包"><a href="#作用域闭包" class="headerlink" title="作用域闭包"></a>作用域闭包</h4><p><strong>闭包的定义：函数当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是当前词法作用域之外执行</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">	var a = 2;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">function</span> <span class="function"><span class="title">bar</span></span>()&#123;</span><br><span class="line">		console.log( a ); 	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">return</span> bar();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var baz=foo();</span><br><span class="line">baz();				// 2</span><br></pre></td></tr></table></figure>
+<p>解释：函数bar()的词法作用域能够访问foo()的内部作用域，然后我们将bar()函数本身当作一个值类型传递，bar所引用的函数对象本身当作返回值。<br>在foo()执行后，其返回值（也就是内部的bar()函数）赋值给变量baz()并调用，实际上知识通过不同的标识符引用调用了内部函数bar();<br><strong>在这个例子之中，bar在自己定义的词法作用域以外的地方—-闭包</strong></p>
+<font color="ff014b">闭包的神奇之处：</font>在上例中，一般情况下：在foo()执行之后，通常会期待foo() 的整个内部作用域都被销毁，因为我们知道引擎有垃圾回收器用来释放不再使用的内存控件，因为foo() 内容不会再被使用，所以很自然的会对其进行回收。但是闭包会阻止引擎回收foo所占用的内存(foo()的内部作用域依然存在，是由于bar()在使用这个内部作用域)。<br><br>闭包在函数中的应用：定时器，事件监听器，Ajax请求，跨窗口通信，WebWorks或者任何其他异步(或者同步)任务中只要使用了回调函数，实际上就是在使用闭包。<br><br>#### 循环和闭包<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(var i=1;i&lt;=5;i++)</span><br><span class="line">&#123;</span><br><span class="line">	setTimeout(<span class="keyword">function</span> <span class="function"><span class="title">timer</span></span>()&#123;</span><br><span class="line">		console.log(i);</span><br><span class="line">	&#125;,i*1000);</span><br><span class="line">&#125;</span><br><span class="line">//输出的是五次6</span><br></pre></td></tr></table></figure><br><br>这个循环的终止条件是i不再&lt;=5,<font color="#ff014b">延迟函数的回调和i在循环结束时才执行</font>，条件首次成立时i的值是6，，输出显示的是循环结束时i的最终值。<br><br>我们希望这是延时输出1，2….5,但是输出了五次6，这是因为，在实际情况中，每次循环所调用的函数都是调用的同一个变量i和回调函数,(<font color="#ff014b">它们都被封闭在一个共享的全局作用域中</font>);所以只在循环循环结束时候，才调用了延时函数，故输出五次6.<br><br><font color="#ff014b">为了解决上述问题，<strong>我们需要设置更多的闭包作用域，特别是循环的每个过程中每个迭代都需要一个闭包作用域。</strong></font>
+
 
         </div>
         <div class="post-tool">
@@ -157,8 +156,6 @@
         <div class="post-tags">Tags：
             
             <a href="/tags/js/">js</a>
-            
-            <a href="/tags/vue/">vue</a>
             
         </div>
         

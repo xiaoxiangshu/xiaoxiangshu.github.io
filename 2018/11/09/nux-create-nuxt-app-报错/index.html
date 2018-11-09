@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>标签 - mustache模板 - kora blog</title>
+<title>nux create-nuxt-app...报错 - kora blog</title>
 
 <meta name="keywords" content="">
 
@@ -67,21 +67,21 @@
 </div>
             <div class="page-title">
     <ul>
-        <li class="">
-            <a href="/" data-name="最近文章">最近</a>
-        </li>
+        <li><a href="/">最新</a></li>
         
-        <li class="">
-            <a href="/categories/the-front-end" data-name="前端">前端</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/server-side" data-name="后台">后台</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/life" data-name="生活">生活</a>
-        </li>
+            
+                <li class="">
+                    <a href="/categories/the-front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server-side" data-name="后台">后台</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/life" data-name="生活">生活</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -122,39 +122,52 @@
     </ul>
 </div>
 <div class="main-inner">
-    
-    
-    
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong></strong>
+    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/v2.jpg" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-11-09">2018-11-09</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">nux create-nuxt-app...报错</h2>
+            <div class="post-meta">
+                本文总共193个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>使用npx create-nuxt-app 命令时候报错,<br>上网查了一下，发现网友们是在执行npm install报出了同样的错误;</p>
+<p>报错信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nexpected end of JSON input <span class="keyword">while</span> parsing near <span class="string">'...e4r+98vkwkOtMpSP9r5d6'</span></span><br></pre></td></tr></table></figure></p>
+<p>使用同款解决方法，<br>解决方法：</p>
+<pre><code class="bash">npm cache clean --force
+
+</code></pre>
+<p>成功解决。</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
             </a>
-            <em>·</em>2018-10-28
         </div>
-        <a class="post-title" href="/2018/10/28/mustache语法/" target="_blank" title="mustache语法">mustache语法</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+        
+        <div class="post-tags">Tags：
             
-                <em>·</em>
-                <a href="https://xxxxcute.github.io/tags/mustache模板/" target="_blank">mustache模板</a>
+            <a href="/tags/npm/">npm</a>
             
         </div>
-    </div>
-    <div class="post-desc">
-        mustache语法
-    </div>
-</article>
-
-
-
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
     
 </div>
-<!-- 分页开始 -->
-
-
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
