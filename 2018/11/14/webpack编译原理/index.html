@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>归档集 - kora blog</title>
+<title>webpack编译原理 - kora blog</title>
 
 <meta name="keywords" content="">
 
@@ -67,8 +67,22 @@
 </div>
             <div class="page-title">
     <ul>
-        <li><a href="/" data-name="首页" title="Back Home">首页</a></li>
-        <li><a href="/tags" data-name="标签云" title="标签云">标签</a></li>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/the-front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server-side" data-name="后台">后台</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/life" data-name="生活">生活</a>
+                </li>
+            
+        
         <li class="page-search">
     <form id="search" class="search-form">
         <label for="s" class="sr-only">请输入关键字</label>
@@ -110,125 +124,49 @@
 <div class="main-inner">
     <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
         <div class="post-header">
-            <h3 class="post-title">坦率的讲 - 本站目前共计13篇文章</h3>
-        </div>
-        <p><img src="/images/category-bg.jpg" alt="category-bg"></p>
-        <div class="post-content markdown-body" itemprop="articleBody">
-            <div class="archives">
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2018年11月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>14日17:47:20
-                            <a href="/2018/11/14/webpack编译原理/">webpack编译原理</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>09日23:44:17
-                            <a href="/2018/11/09/学习总结-你不知道的JavaScript-this全面解析/">学习总结-你不知道的JavaScript(this全面解析)</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>09日09:03:01
-                            <a href="/2018/11/09/nux-create-nuxt-app-报错/">nux create-nuxt-app...报错</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>08日13:28:32
-                            <a href="/2018/11/08/学习总结-你不知道的JavaScript-闭包/">学习总结-你不知道的JavaScript(闭包)</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>04日21:45:37
-                            <a href="/2018/11/04/学习总结-你不知道的JavaScript(作用域)/">学习总结-你不知道的JavaScript(作用域)</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2018年10月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>30日14:53:24
-                            <a href="/2018/10/30/android生成apk出错/">android生成apk出错</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>28日11:40:13
-                            <a href="/2018/10/28/mustache语法/">mustache语法</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>28日10:52:53
-                            <a href="/2018/10/28/学习笔记-vue/">学习笔记-vue</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>27日20:48:31
-                            <a href="/2018/10/27/模块引入-import/">模块引入-import</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>27日11:32:56
-                            <a href="/2018/10/27/testImage/">testImage</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>26日17:22:52
-                            <a href="/2018/10/26/浏览器复制文本/">浏览器复制文本</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>26日17:18:30
-                            <a href="/2018/10/26/web3-eth-coinbase为undefine/">web3.eth.coinbase为undefine</a>
-                        </li>
-                        
-                
-                
-                
-                        <li>26日11:35:56
-                            <a href="/2018/10/26/mysql5.7.23-安装/">mysql5.7.23安装</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/v2.jpg" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-11-14">2018-11-14</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">webpack编译原理</h2>
+            <div class="post-meta">
+                本文总共675个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
-    </article>
-</div>
+        <div class="post-content markdown-body">
+            <h2 id="一、webpack-的作用"><a href="#一、webpack-的作用" class="headerlink" title="一、webpack 的作用"></a>一、webpack 的作用</h2><p>1、依赖管理<br>方便应用第三方模块、让模块跟容易重复易用，避免全局注入导致的冲突、避免重复加载或加载不需要的模块。会一层一层读取依赖的模块，添加不同的入口；同时，不会重复打包依赖的模块。</p>
+<p>2、合并代码<br>把各个分散的模块集中打包成大文件，减少HTTP的请求链接数，配合UglifyJS(压缩代码)可以减少、优化代码的体积。</p>
+<p>3、各路插件<br>统一处理引用的插件，babel编译ES6文件，TypeScript,eslint可以检查编译期的错误。</p>
+<font color="#ff014b">webpack的作用就是处理依赖，模块化，打包压缩文件，管理插件</font>
 
+<h2 id="二、webpack原理"><a href="#二、webpack原理" class="headerlink" title="二、webpack原理"></a>二、webpack原理</h2><p>一切皆为模块，由于web pack只支持js文件，所以需要用loader转换为webpack支持的模块，其中plugin用于扩张webpack的功能<br>，在webpack构建生命周期的过程中，在合适的时机做了合适的事情。<br><em>webpack 怎么工作的过程：</em><br>1、解析配置参数，合并从shell(npm install 类似的命令)和webpack.config.js文件的配置信息，输出最终的配置信息;<br>2、注册配置中的插件，好让插件监听webpack构建生命周期的中的节点，做出对应的反应。<br>3、解析配置文件中的entry入口文件，并找出每个文件依赖的文件，递归下去<br>4、在递归每个文件的过程中，根据文件类型和配置文件中loader找出对应的loader对文件进行转换；<br>5、递归结束后得到每个文件的最终结果，根据entry配置生成代码chunk(打包之后的名字)<br>6、输出所有的chunk到文件系统。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">学习来源：网络</span><br></pre></td></tr></table></figure>
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/webpack/">webpack</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
