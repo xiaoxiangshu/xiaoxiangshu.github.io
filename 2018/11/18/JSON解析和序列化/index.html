@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://xxxxcute.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://xxxxcute.github.io">
+<meta name="author" content="kora">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/SimpleStyle.min.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>json解析和序列化 - kora blog</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="你来人间一趟，你要看看太阳，带着你新new的对象，一起走在编译的路上。">
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="赵">赵</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/v2.jpg" alt="Xinyi">
+        
+        <h1 class="cover-siteName">以梦为马</h1>
+        <h3 class="cover-siteTitle">记录学习的点滴</h3>
+        <p class="cover-siteDesc">物昭晰而互进，情曈昽而弥鲜。</p>
+        <div class="cover-sns">
+            
+            <div class="btn btn-github">
+                <a href="https://github.com/xxxxcute" target="_blank" title="github" ref="friend">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/the-front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server-side" data-name="后台">后台</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/life" data-name="生活">生活</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">Input Search key Words Here</label>
+        <input class="search-field" type="text" name="s" placeholder="Input Search key Words Here">
+        <button type="submit" class="search-form-submit" title="Search"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/v2.jpg" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-11-18">2018-11-18</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">JSON解析和序列化</h2>
+            <div class="post-meta">
+                本文总共2803个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>ECMScript5 对解析JSON的行为进行规范，定义了全局对象JSON,JSON对象是JavaScript语法的子集。<br>支持JSON对象的的浏览器有<font color="ff014b">IE8+、 FireFox 3.5+ 、Safari4+、Chrome和Opera10.5+ </font><br>较早版本的浏览器，可以使用一个shim:<a href="https://github.com/douglascrockford/JSON-js。" target="_blank" rel="noopener">https://github.com/douglascrockford/JSON-js。</a></p>
+<p>JSON对象有两个方法：<br><strong>stringify():JavaScript–(序列化为)–JSON<br>parse():JSON–(解析为)–JavaScript</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var book = &#123;</span><br><span class="line">	title:<span class="string">"Professional JavaScript"</span>,</span><br><span class="line">	authors:[</span><br><span class="line">		<span class="string">"Zhao xin yi"</span></span><br><span class="line">	],</span><br><span class="line">	edition: 3,</span><br><span class="line">	year: 2011</span><br><span class="line">&#125;;</span><br><span class="line">var jsonText = JSON.stringify(book);</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var bookCopy = JSON.parse(jsonText);</span><br></pre></td></tr></table></figure>
+<p><em>序列化选项</em></p>
+<p>JSON.stringify(JavaScript对象,过滤器(数组、函数),选项(表示是否在JSON字符串中保留缩进))</p>
+<p>1、过滤结果</p>
+<p>数组：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var book = &#123;</span><br><span class="line">	title:<span class="string">"Professional JavaScript"</span>,</span><br><span class="line">	authors:[</span><br><span class="line">		<span class="string">"Zhao xin yi"</span></span><br><span class="line">	],</span><br><span class="line">	edition: 3,</span><br><span class="line">	year: 2011</span><br><span class="line">&#125;;</span><br><span class="line">var jsonText = JSON.stringify(book,[<span class="string">"title"</span>,<span class="string">"edition"</span>]); </span><br><span class="line">console.log(jsonText); //&#123;<span class="string">"title"</span>:<span class="string">"Professional JavaScript"</span>,<span class="string">"edition"</span>:3&#125;</span><br></pre></td></tr></table></figure></p>
+<p>函数：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var book = &#123;</span><br><span class="line">	title:<span class="string">"Professional JavaScript"</span>,</span><br><span class="line">	authors:[</span><br><span class="line">		<span class="string">"Zhao xin yi"</span></span><br><span class="line">	],</span><br><span class="line">	edition: 3,</span><br><span class="line">	year: 2011</span><br><span class="line">&#125;;</span><br><span class="line">var jsonText = JSON.stringify(book,<span class="keyword">function</span>(key,value)&#123;</span><br><span class="line">	switch(key)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"authors"</span>:</span><br><span class="line">			<span class="built_in">return</span> value.join(<span class="string">","</span>);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"year"</span>:</span><br><span class="line">			<span class="built_in">return</span> 5000;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"edition"</span>:</span><br><span class="line">			<span class="built_in">return</span> undefined;</span><br><span class="line">		default:</span><br><span class="line">			<span class="built_in">return</span> value;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;); </span><br><span class="line">console.log(jsonText); //&#123;<span class="string">"title"</span>:<span class="string">"Professional JavaScript"</span>,<span class="string">"authors"</span>:<span class="string">"Zhao xin yi"</span>,<span class="string">"year"</span>:5000&#125;</span><br></pre></td></tr></table></figure></p>
+<p>传入的函数接受两个参数：属性名(键)和属性值,根据键可以知道应该如何处理要序列化的对象中的属性<br>属性名只能是字符串，而在值并非键值对结构的值时，键名可以使空字符串。<br>当属性值返回的是undefined时，相应的属性会被忽略(删除)。</p>
+<p>2、字符串缩进<br>第三个参数用于控制结果中的缩进和空白符。<br>参数为数值：<font color="ff014b">表示每个级别缩进的空格数</font><br>（缩短字符不能超过10个字符长,如何字符串长度超过了10个,结果将自动变为10）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var book = &#123;</span><br><span class="line">	<span class="string">"title"</span> : <span class="string">"Professional JavaScript"</span>,</span><br><span class="line">	<span class="string">"authors"</span> : [</span><br><span class="line">		<span class="string">"zhaoxinyi"</span></span><br><span class="line">	],</span><br><span class="line">	edition: 3,</span><br><span class="line">	year: 2011</span><br><span class="line">&#125;;</span><br><span class="line">var jsonText = JSON.stringify(book,null,4);</span><br><span class="line">console.log(jsonText);</span><br></pre></td></tr></table></figure></p>
+<p>打印结果：<br>    {<br>    “title”: “Professional JavaScript”,<br>    “authors”: [<br>        “zhaoxinyi”<br>    ],<br>    “edition”: 3,<br>    “year”: 2011<br>    }</p>
+<p>3、toJSON()方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var book = &#123;</span><br><span class="line">	<span class="string">"title"</span> : <span class="string">"Professional JavaScript"</span>,</span><br><span class="line">	<span class="string">"authors"</span> : [</span><br><span class="line">		<span class="string">"zhaoxinyi"</span></span><br><span class="line">	],</span><br><span class="line">	edition: 3,</span><br><span class="line">	year: 2011,</span><br><span class="line">	toJSON: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> this.title;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">var jsonText = JSON.stringify(book);</span><br><span class="line">console.log(jsonText); 		//<span class="string">"Professional JavaScript"</span></span><br></pre></td></tr></table></figure></p>
+<p>toJSON()可以作为函数过滤器的补充,因此理解序列化的内部顺序十分重要，假设把一个对象传入JSON.stringify(),序列化该对象的顺序如下：<br>1、如果存在toJSON方法而且能通过它取得有效的值，则调用该方法，否则返回对象本身。<br>2、如果提供了第二个参数，应用这个函数过滤器，传入函数过滤器的值是第一部的返回值。<br>3、对第二步返回的每个值进行相应的序列化<br>4、如果提供了第三个参数，执行相应的格式化。</p>
+<p><em>解析选项</em></p>
+<p>JSON.parse(JavaScript对象,还原函数(将在每个键值对上调用));<br>若还原函数返回undefined，则表示要从结果中删除相应的键。<br>若返回其他值，则将该值插入到结果中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var book = &#123;</span><br><span class="line">	<span class="string">"title"</span> : <span class="string">"Professional JavaScript"</span>,</span><br><span class="line">	<span class="string">"authors"</span> : [</span><br><span class="line">		<span class="string">"zhaoxinyi"</span></span><br><span class="line">	],</span><br><span class="line">	edition: 3,</span><br><span class="line">	year: 2011,</span><br><span class="line">	releaseDate: new Date(2011,11,1)</span><br><span class="line">&#125;;</span><br><span class="line">var jsonText = JSON.stringify(book);</span><br><span class="line">var bookCopy = JSON.parse(jsonText,<span class="keyword">function</span>(key,value)&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(key == <span class="string">"releaseDate"</span>)&#123;</span><br><span class="line">		<span class="built_in">return</span> new Date(value);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">return</span> value;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">alert(bookCopy.releaseDate.getFullYear()); //2011</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+            <a href="/tags/JSON/">JSON</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!--<a href="/app" title="App下载">App下载</a>-->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2017 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://www.tangkunyin.com" target="_blank">唐先森</a>
+            ，Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+        </p>
+        
+
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/InsightSearch.js"></script>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        SimpleCore.init({
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+        });
+    });
+</script>
+</body>
+</html>
