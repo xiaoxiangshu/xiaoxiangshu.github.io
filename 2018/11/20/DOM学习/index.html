@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://xxxxcute.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://xxxxcute.github.io">
+<meta name="author" content="kora">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/SimpleStyle.min.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>dom学习 - kora blog</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="你来人间一趟，你要看看太阳，带着你新new的对象，一起走在编译的路上。">
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="赵">赵</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/v2.jpg" alt="Xinyi">
+        
+        <h1 class="cover-siteName">以梦为马</h1>
+        <h3 class="cover-siteTitle">记录学习的点滴</h3>
+        <p class="cover-siteDesc">物昭晰而互进，情曈昽而弥鲜。</p>
+        <div class="cover-sns">
+            
+            <div class="btn btn-github">
+                <a href="https://github.com/xxxxcute" target="_blank" title="github" ref="friend">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/the-front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server-side" data-name="后台">后台</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/life" data-name="生活">生活</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/v2.jpg" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-11-20">2018-11-20</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">DOM学习</h2>
+            <div class="post-meta">
+                本文总共5097个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="JavaScript于HTML标记分离"><a href="#JavaScript于HTML标记分离" class="headerlink" title="JavaScript于HTML标记分离"></a>JavaScript于HTML标记分离</h1><p>html代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"image"</span>&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;a href=<span class="string">"xxx"</span> title=<span class="string">"xxx"</span>&gt;1&lt;/a&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;a href=<span class="string">"xxx"</span> title=<span class="string">"xxx"</span>&gt;2&lt;/a&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;a href=<span class="string">"xxx"</span> title=<span class="string">"xxx"</span>&gt;3&lt;/a&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;a href=<span class="string">"xxx"</span> title=<span class="string">"xxx"</span>&gt;4&lt;/a&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+<p>JavaScript<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">prepare</span></span>()&#123;</span><br><span class="line">	<span class="keyword">if</span>(!document.getElementsByTagName) <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(!document.getElementById) <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(!documnet.getElementById(<span class="string">"image"</span>)) <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	var image = document.getElemntById(<span class="string">"image"</span>);</span><br><span class="line">	var links = image.getElementsByTagName(<span class="string">"a"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(var i=0; i&lt;links.length;i++)&#123;</span><br><span class="line">		links[i].onclick = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			//...对每个连接进行操作</span><br><span class="line">			<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使JS函数在页面加载完毕之后操作—–使用onload事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.onload = prepare;</span><br></pre></td></tr></table></figure></p>
+<p>(在<font color="#ff014b">需要绑定的函数不是很多</font>的场合)——多个函数共享onload事件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">window.onload=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	firstFunction();</span><br><span class="line">	secondFuncton();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(无论在页面加载完毕后需要加载多少个函数)——–使用<strong>addLoadEvent</strong>函数</p>
+<p><strong>addLoadEvent函数的代码清单：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> addLoadEvent(func)&#123;</span><br><span class="line">	var oldonload = window.onload;</span><br><span class="line">	<span class="keyword">if</span>(typeif window.onload != <span class="string">'function'</span>)&#123;</span><br><span class="line">		window.onload = func;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		window.onload = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			oldonload();</span><br><span class="line">			func();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是将那些在页面加载完毕时执行的函数创建一个队列，将刚才那两个函数添加到队列中：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addLoadEvent(firstFunction);</span><br><span class="line">addLoadEvent(secondFuncton);</span><br></pre></td></tr></table></figure></p>
+<p>键盘访问时候，可以直接将单击事件onclick赋值给onkeypress事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">links[i].onclick = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			//...</span><br><span class="line">		&#125;</span><br><span class="line">links[i].onkeypress = links[i].onclick;</span><br></pre></td></tr></table></figure>
+<p><strong>onkeypress事件</strong>：用户按下每一个按键都会触发<br><strong>onclick</strong>:除了点击时候会触发以外，用户按下回车键也会触发</p>
+<h1 id="DOM方法"><a href="#DOM方法" class="headerlink" title="DOM方法"></a>DOM方法</h1><p><strong>以动态方式实时创建标记  == 并不是在创建标记，而是在改变DOM节点树</strong></p>
+<p><strong>createElement</strong>:创建一个元素节点<br>创建一个p元素：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.createElement(<span class="string">"p"</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>appendChild</strong>:将新创建的节点插入到节点树中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//将新创建的节点插入到节点树中：</span><br><span class="line">parent.appendChild(child);</span><br><span class="line"></span><br><span class="line">//将刚刚创建的P节点插入到文档中称为id为testdiv的子节点</span><br><span class="line">var testDiv = document.getElementById(<span class="string">"testDiv"</span>);</span><br><span class="line">var para = documert.createElement(<span class="string">"p"</span>);</span><br><span class="line">testDiv.appendChild(para);</span><br></pre></td></tr></table></figure></p>
+<p><strong>createTextNode</strong>:创建一个文本节点</p>
+<p><strong>insertBefore</strong>: 将一个新元素插入到一个现有元素的前面。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parentElement .insertBefore(newElement,targetElement);</span><br></pre></td></tr></table></figure></p>
+<p>元素节点的父元素必须是另一个元素节点(属性节点和文本节点的子元素不允许是元素节点)</p>
+<p>将节点placeholder 插入到gallert前面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var gallery = document.getElementById(<span class="string">"image"</span>);</span><br><span class="line">gallery . parentNode.insertBefore(placeholder,gallert);</span><br></pre></td></tr></table></figure></p>
+<p><strong>自定义insertAfter函数</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> insertAfter(newElement,targetElement)&#123;</span><br><span class="line">	var parent = targetElement.parentNode;</span><br><span class="line">	<span class="keyword">if</span>(parent.lastChild == targetElement)&#123;</span><br><span class="line">		parent.appendChild(newElement);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		parent.insertBefore(newElement,targetElement.nextSibling);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>nextSibling</strong>:目标元素的下一个兄弟元素</p>
+<h1 id="CSS-DOM"><a href="#CSS-DOM" class="headerlink" title="CSS-DOM"></a>CSS-DOM</h1><p>当我们需要引用一个中间带有减号(短横线)的CSS属性时，DOM要求我们用<font color="ff014b">驼峰命名法</font>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//font-family</span><br><span class="line">element.style.fontFamily</span><br></pre></td></tr></table></figure></p>
+<font color="ff014b">通过style属性获取样式，只能获取嵌套在HTML标记中的内嵌样式，</font>当CSS引用的外部样式表的时候，就不能DOM.style属性检索出来了。<br><font color="#ff014b">但是用DOM设置的样式，就可以用DOM再次将他们检索出来。</font>
+
+<p>Style对象的各个属性都是可读写的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.style.property = value;</span><br></pre></td></tr></table></figure></p>
+<p><strong>style对象的属性值永远是一个字符串</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;p id=<span class="string">"example"</span> style=<span class="string">"color:grey;font-family: 'Arial',sans-serif;"</span>&gt;</span><br><span class="line">		An example of a paragraph</span><br><span class="line">	&lt;/p&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	window.onload = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		var para = document.getElementById(<span class="string">"example"</span>);</span><br><span class="line">		para.style.color= <span class="string">"red"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="根据元素的位置来声明样式"><a href="#根据元素的位置来声明样式" class="headerlink" title="根据元素的位置来声明样式"></a>根据元素的位置来声明样式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p:first-of-type&#123;</span><br><span class="line">	font-size:2em;</span><br><span class="line">	font-weight:bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>下一个节点与下一个元素节点</strong></p>
+<p>下一个节点： nextSibling</p>
+<p>下一个元素节点：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> getNextElement(node)&#123;</span><br><span class="line">	<span class="keyword">if</span>(node.nodeType == 1)&#123;</span><br><span class="line">		<span class="built_in">return</span> node;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(node.nextSibling)&#123;</span><br><span class="line">		<span class="built_in">return</span> getNextElement(node.nextSibling);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="例：-设置表格隔行颜色发生变化"><a href="#例：-设置表格隔行颜色发生变化" class="headerlink" title="例： 设置表格隔行颜色发生变化"></a>例： 设置表格隔行颜色发生变化</h1><p>关键JS代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">stripeTables</span></span>()&#123;</span><br><span class="line">	<span class="keyword">if</span>(!document.getElementsByTagName) <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	var tabs = document.getElementsByTagName(<span class="string">"table"</span>);</span><br><span class="line">	var odd , rows;</span><br><span class="line">	<span class="keyword">for</span>(var i =0;i &lt; tabs.length;i++)&#123;</span><br><span class="line">		odd = <span class="literal">false</span>;</span><br><span class="line">		rows = tabs[i].getElementsByTagName(<span class="string">"tr"</span>);</span><br><span class="line">		<span class="keyword">for</span>(var j = 0; j &lt; rows.length ; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(odd == <span class="literal">true</span>)&#123;</span><br><span class="line">				rows[j].style.backgroundColor = <span class="string">'#ffc'</span>;</span><br><span class="line">				odd = <span class="literal">false</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				odd = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="例：鼠标悬停在某个表格行上方时候，把该行文本加黑加粗"><a href="#例：鼠标悬停在某个表格行上方时候，把该行文本加黑加粗" class="headerlink" title="例：鼠标悬停在某个表格行上方时候，把该行文本加黑加粗"></a>例：鼠标悬停在某个表格行上方时候，把该行文本加黑加粗</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">highlightRows</span></span>()&#123;</span><br><span class="line">	<span class="keyword">if</span>(!document.getElementsByTagName) <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	var rows = document.getElementsByTagName(<span class="string">"tr"</span>);</span><br><span class="line">	<span class="keyword">for</span>(var i =0;i&lt;rows.length;i++)&#123;</span><br><span class="line">		rows[i].onmouseover = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			this.style.fontWeight = <span class="string">"bold"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		rows[i].onmouseout = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			this.style.fontWeight = <span class="string">"normal"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="calssNmae属性"><a href="#calssNmae属性" class="headerlink" title="calssNmae属性"></a>calssNmae属性</h1><p>className属性可以得到一个元素的class属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.className</span><br></pre></td></tr></table></figure></p>
+<p>用clasName属性和赋值操作符设置一个元素的class属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.className = value</span><br></pre></td></tr></table></figure></p>
+<h1 id="例：给一个元素追加一个新的class"><a href="#例：给一个元素追加一个新的class" class="headerlink" title="例：给一个元素追加一个新的class"></a>例：给一个元素追加一个新的class</h1><p>（1）,检查className属性的值是否为null<br>（2）,如果是，把新的clas设置值直接赋值给className属性<br>（3）,如果不是，把一个空格和新的class设置值追加到className属性上去<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> addClass(element,value)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!element.className)&#123;</span><br><span class="line">		element.className = value;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		newClassName = element.className;</span><br><span class="line">		newClassName += <span class="string">" "</span>;</span><br><span class="line">		newClassName +=value;</span><br><span class="line">		element.className = newClassName;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="对函数进行抽象—例：给标签添加class"><a href="#对函数进行抽象—例：给标签添加class" class="headerlink" title="对函数进行抽象—例：给标签添加class"></a>对函数进行抽象—例：给标签添加class</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> styleElementSibling(tag,theclass)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!document.getElementsByTagName) <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	var elems = document.getElementsByTagName(tag);</span><br><span class="line">	var elem;</span><br><span class="line">	<span class="keyword">for</span>(var i = 0;i&lt;elems.length;i++)&#123;</span><br><span class="line">		elem.getNextElement(elems[i].nextSibling);</span><br><span class="line">		addClass(elem.theclass);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/DOM/">DOM</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!--<a href="/app" title="App下载">App下载</a>-->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2017 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://www.tangkunyin.com" target="_blank">唐先森</a>
+            ，Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+        </p>
+        
+
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/InsightSearch.js"></script>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        SimpleCore.init({
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+        });
+    });
+</script>
+</body>
+</html>
