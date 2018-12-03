@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>浏览器复制文本 - 赵</title>
+<title>赵 - zhao--xin--yi</title>
 
 <meta name="keywords" content="">
 
@@ -67,21 +67,21 @@
 </div>
             <div class="page-title">
     <ul>
-        <li><a href="/">最新</a></li>
+        <li class="active">
+            <a href="/" data-name="最近文章">最近</a>
+        </li>
         
-            
-                <li class="">
-                    <a href="/categories/the-front-end" data-name="前端">前端</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/server-side" data-name="后台">后台</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/life" data-name="生活">生活</a>
-                </li>
-            
+        <li class="">
+            <a href="/categories/the-front-end" data-name="前端">前端</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/server-side" data-name="后台">后台</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/life" data-name="生活">生活</a>
+        </li>
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -122,46 +122,46 @@
     </ul>
 </div>
 <div class="main-inner">
-    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <div class="post-author clearfix">
-                <a class="avatar fleft" href="" target="_blank">
-                    <img width="48" src="/images/v2.jpg" alt="avatar">
-                </a>
-                <p><span class="label">作者</span>
-                    <a href="" target="_blank"></a>
-                    <span title="最后编辑于2018-10-26">2018-10-26</span>
-                </p>
-                <p></p>
-            </div>
-            <h2 class="post-title">浏览器复制文本</h2>
-            <div class="post-meta">
-                本文总共760个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
-            </div>
-        </div>
-        <div class="post-content markdown-body">
-            <h2 id="可复制指定节点元素的文本内容"><a href="#可复制指定节点元素的文本内容" class="headerlink" title="可复制指定节点元素的文本内容"></a>可复制指定节点元素的文本内容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="keyword">function</span> copyUrl2()</span><br><span class="line">    &#123;</span><br><span class="line">        var Url2=document.getElementById(<span class="string">"biao2"</span>).innerText;</span><br><span class="line">        var oInput = document.createElement(<span class="string">'input'</span>);</span><br><span class="line">        oInput.value = Url2;</span><br><span class="line">        document.body.appendChild(oInput);</span><br><span class="line">        oInput.select(); // 选择对象</span><br><span class="line">        document.execCommand(<span class="string">"Copy"</span>); // 执行浏览器复制命令</span><br><span class="line">        oInput.className = <span class="string">'oInput'</span>;</span><br><span class="line">        oInput.style.display=<span class="string">'none'</span>;</span><br><span class="line">        alert(<span class="string">'复制成功'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt; </span><br><span class="line">&lt;div cols=<span class="string">"20"</span> id=<span class="string">"biao1"</span>&gt;12345678&lt;/div&gt; </span><br><span class="line">&lt;div cols=<span class="string">"20"</span> id=<span class="string">"biao2"</span>&gt;222222&lt;/div&gt; </span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> onClick=<span class="string">"copyUrl2()"</span> value=<span class="string">"点击复制代码"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body</span><br></pre></td></tr></table></figure>
-
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
-            </a>
-        </div>
-        
-        <div class="post-tags">标签：
-            
-            <a href="/tags/js/">js</a>
-            
-        </div>
-        
-    </article>
     
-    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    <!-- 首页默认取最最新文章集 -->
+    
+    
+<article class="post">
+    
+    <div class="post-header">
+        <div class="post-meta">
+            <a href="" target="_blank">
+                <strong></strong>
+            </a>
+            <em>·</em>2018-10-26
+        </div>
+        <a class="post-title" href="/2018/10/26/mysql5.7.23-安装/" target="_blank" title="mysql5.7.23安装">mysql5.7.23安装</a>
+        <div class="post-meta">
+            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+            
+                <em>·</em>
+                <a href="https://xxxxcute.github.io/tags/mysql/" target="_blank">mysql</a>
+            
+        </div>
+    </div>
+    <div class="post-desc">
+        mysql5.7.23安装
+    </div>
+</article>
+
+
+
     
     
 </div>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- 分页开始 -->
+
+<div id="btn-pager">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+</div>
+
+
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
