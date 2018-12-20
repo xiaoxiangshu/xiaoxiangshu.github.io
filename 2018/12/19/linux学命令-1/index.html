@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>标签 - 赵</title>
+<title>linux学习命令~1 - 赵</title>
 
 <meta name="keywords" content="">
 
@@ -67,8 +67,22 @@
 </div>
             <div class="page-title">
     <ul>
-        <li><a href="/" data-name="首页" title="Back Home">首页</a></li>
-        <li><a href="/archives" data-name="归档" title="归档">归档</a></li>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/the-front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server-side" data-name="后台">后台</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/life" data-name="生活">生活</a>
+                </li>
+            
+        
         <li class="page-search">
     <form id="search" class="search-form">
         <label for="s" class="sr-only">请输入关键字</label>
@@ -110,45 +124,51 @@
 <div class="main-inner">
     <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
         <div class="post-header">
-            <h3 class="post-title">总的来说 - 目前共计14类标签</h3>
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/v2.jpg" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-12-19">2018-12-19</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">linux学习命令~1</h2>
+            <div class="post-meta">
+                本文总共380个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
         </div>
-        <p><img src="/images/tags-bg.jpg" alt="tags-bg"></p> 
-        <div class="post-content markdown-body" itemprop="articleBody">
-            <ul class="tag-list">
-                
-                <li><a href="/tags/DOM/">DOM(4)</a></li>
-                
-                <li><a href="/tags/JSON/">JSON(1)</a></li>
-                
-                <li><a href="/tags/android/">android(1)</a></li>
-                
-                <li><a href="/tags/es6/">es6(1)</a></li>
-                
-                <li><a href="/tags/git/">git(2)</a></li>
-                
-                <li><a href="/tags/js/">js(5)</a></li>
-                
-                <li><a href="/tags/linux/">linux(1)</a></li>
-                
-                <li><a href="/tags/mustache模板/">mustache模板(1)</a></li>
-                
-                <li><a href="/tags/mysql/">mysql(1)</a></li>
-                
-                <li><a href="/tags/npm/">npm(2)</a></li>
-                
-                <li><a href="/tags/travel/">travel(1)</a></li>
-                
-                <li><a href="/tags/vue/">vue(2)</a></li>
-                
-                <li><a href="/tags/webpack/">webpack(1)</a></li>
-                
-                <li><a href="/tags/区块链/">区块链(1)</a></li>
-                
-            </ul>
-        </div>
-    </article>
-</div><!-- end #main-->
+        <div class="post-content markdown-body">
+            <p>记录一下小白白第一次使用ssh远程连接Liunx服务器的激动的心情……以及用到的指令~</p>
+<p>假设 远程服务器的ip为 192.168.1.1</p>
+<h3 id="1、ssh远程连接"><a href="#1、ssh远程连接" class="headerlink" title="1、ssh远程连接"></a>1、ssh远程连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh 用户名@192.168.1.1</span><br><span class="line"></span><br><span class="line">example: 以root用户身份连接</span><br><span class="line">ssh root@192.168.1.1</span><br></pre></td></tr></table></figure>
+<h3 id="2、将远程的文件拷贝至本地路径"><a href="#2、将远程的文件拷贝至本地路径" class="headerlink" title="2、将远程的文件拷贝至本地路径"></a>2、将远程的<font color="#ff014b">文件</font>拷贝至本地路径</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root@192.168.1.1:/home/123.txt /F/data</span><br></pre></td></tr></table></figure>
+<p>上面的root是用户名，192.168.1.1是远程服务器的ip,”:”不要丢掉，/home/123.txt 是需要copy的文件，/F/data是本地路径</p>
+<h3 id="3、将远程的文件夹拷贝至本地路径"><a href="#3、将远程的文件夹拷贝至本地路径" class="headerlink" title="3、将远程的文件夹拷贝至本地路径"></a>3、将远程的<font color="#ff014b">文件夹</font>拷贝至本地路径</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root@192.168.1.1:/home/123.txt /F/data</span><br></pre></td></tr></table></figure>
+<p>加一个-r就好了</p>
+<h3 id="4、断开与服务器的连接"><a href="#4、断开与服务器的连接" class="headerlink" title="4、断开与服务器的连接"></a>4、断开与服务器的连接</h3><p>ctrl+D<br>或者命令<br>logout</p>
 
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/linux/">linux</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
