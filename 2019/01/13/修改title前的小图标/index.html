@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>标签 - mysql - 赵</title>
+<title>修改title前的小图标 - 赵</title>
 
 <meta name="keywords" content="">
 
@@ -67,21 +67,21 @@
 </div>
             <div class="page-title">
     <ul>
-        <li class="">
-            <a href="/" data-name="最近文章">最近</a>
-        </li>
+        <li><a href="/">最新</a></li>
         
-        <li class="">
-            <a href="/categories/the-front-end" data-name="前端">前端</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/server-side" data-name="后台">后台</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/life" data-name="生活">生活</a>
-        </li>
+            
+                <li class="">
+                    <a href="/categories/the-front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server-side" data-name="后台">后台</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/life" data-name="生活">生活</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -122,39 +122,47 @@
     </ul>
 </div>
 <div class="main-inner">
-    
-    
-    
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong></strong>
+    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/v2.jpg" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2019-01-13">2019-01-13</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">修改title前的小图标</h2>
+            <div class="post-meta">
+                本文总共513个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h2 id="1、普通的HTML页面，配置图标和文字"><a href="#1、普通的HTML页面，配置图标和文字" class="headerlink" title="1、普通的HTML页面，配置图标和文字"></a>1、普通的HTML页面，配置图标和文字</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;title&gt;标题栏文字&lt;/title&gt;</span><br><span class="line">  &lt;link rel=<span class="string">"icon"</span> href=<span class="string">"../favicon.ico"</span> <span class="built_in">type</span>=<span class="string">"image/x-icon"</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2、Vue项目中"><a href="#2、Vue项目中" class="headerlink" title="2、Vue项目中"></a>2、Vue项目中</h2><p>1、在网站根目录下的index.html文件的title标签中添加标题栏文字<br>2、将图片.ico 文件放在网站根目录下<br>3、修改 build 文件夹下 webpack.prod.conf.js 和 webpack.dev.conf.js 文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var path = require(<span class="string">'path'</span>) // 开头引入 path 模块</span><br><span class="line">....</span><br><span class="line">// HtmlWebpackPlugin 中添加 favicon</span><br><span class="line">new HtmlWebpackPlugin(&#123;</span><br><span class="line">  filename: <span class="string">'index.html'</span>,</span><br><span class="line">  template: <span class="string">'index.html'</span>,</span><br><span class="line">  favicon: path.resolve(<span class="string">'favicon.ico'</span>), // 引入图片地址</span><br><span class="line">  inject: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
             </a>
-            <em>·</em>2018-10-26
         </div>
-        <a class="post-title" href="/2018/10/26/mysql5.7.23-安装/" target="_blank" title="mysql5.7.23安装">mysql5.7.23安装</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+        
+        <div class="post-tags">Tags：
             
-                <em>·</em>
-                <a href="https://xxxxcute.github.io/tags/mysql/" target="_blank">mysql</a>
+            <a href="/tags/vue/">vue</a>
             
         </div>
-    </div>
-    <div class="post-desc">
-        mysql5.7.23安装
-    </div>
-</article>
-
-
-
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
     
 </div>
-<!-- 分页开始 -->
-
-
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
