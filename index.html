@@ -93,7 +93,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h3 id="【小程序的-swiper-组件会来回抖动-swiper-组件实现的轮播图出现异常抖动情况】"><a href="#【小程序的-swiper-组件会来回抖动-swiper-组件实现的轮播图出现异常抖动情况】" class="headerlink" title="【小程序的 swiper 组件会来回抖动(swiper 组件实现的轮播图出现异常抖动情况】"></a>【小程序的 swiper 组件会来回抖动(swiper 组件实现的轮播图出现异常抖动情况】</h3><p>在 swiper 的 bindchange 方法中添加轮播条件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; current, source &#125; = e.<span class="property">detail</span>;</span><br><span class="line"><span class="keyword">if</span> (source === <span class="string">&quot;autoplay&quot;</span> || source === <span class="string">&quot;touch&quot;</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">currentOrder</span> = current;</span><br><span class="line">  <span class="variable language_">this</span>.$apply();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="scroll-view-的-bindScroll-事件必须给当前的-scroll-view-设置高度"><a href="#scroll-view-的-bindScroll-事件必须给当前的-scroll-view-设置高度" class="headerlink" title="scroll-view 的 bindScroll 事件必须给当前的 scroll-view 设置高度"></a>scroll-view 的 bindScroll 事件必须给当前的 scroll-view 设置高度</h3><h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>1、textArea 的 cursor-spacing 值的设置，设置输入框的光标距离键盘的距离，在安卓机上：需要将当前的组件放在 scrollView 中，才会生效</p>
+<p>不放在 scroll-view 中时候 &amp; textarea 输入框在页面的地步 ：IOS 可以正常顶起，安卓不行</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/doc/d480bd99f7846408f4eca5b926486516">https://developers.weixin.qq.com/community/develop/doc/d480bd99f7846408f4eca5b926486516</a> ｜ <a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/doc/000ca43f92cab82600d6f46ab51400">https://developers.weixin.qq.com/community/develop/doc/000ca43f92cab82600d6f46ab51400</a></p>
+</blockquote>
+<p>2、关于 textArea 的 cursor-spacing： 光标距离底部的距离，在 IOS 系统下，当光标距离底部的距离不足设置的值的时候，此时页面底部会被顶起，</p>
+<p>光标距离底部的距离 &lt; 设置的值 ：页面底部会被顶起<br>光标距离底部的距离 &gt; 设置的值 ：页面底部不会被顶起</p>
+<p>3、 【 当页面中有 swiper 组件 且 当前页面包裹在 scroll-view 中的时候，页面中有输入框】，当页面的元素不足一屏时候，点击输入框，会出现输入框立马获得焦点之后，又立马失去焦点的现象；<br>去除 scroll-view 包裹</p>
+
       
     </div>
     <footer class="article-footer">
